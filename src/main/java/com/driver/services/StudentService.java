@@ -17,26 +17,49 @@ public class StudentService {
     StudentRepository studentRepository4;
 
     public Student getDetailsByEmail(String email){
-        Student student = studentRepository4.findByEmailId(email);
-        return student;
+        try{
+            return studentRepository4.findByEmailId(email);
+        }
+        catch (Exception e){
+            return null;
+        }
     }
 
     public Student getDetailsById(int id){
-        Student student = studentRepository4.findById(id).get();
-        return student;
+        try{
+            return studentRepository4.findById(id).get();
+        }
+        catch(Exception e){
+            return null;
+        }
     }
 
     public void createStudent(Student student){
-        Card card = cardService4.createAndReturn(student);
+        try{
+            Card card = cardService4.createAndReturn(student);
+//            card = studentRepository.findByEmailId(student.getEmailId()).getCard();
+//            cardRepository.findById(card.getId()).get().setStudent(studentRepository.findByEmailId(student.getEmailId()));
+        }
+        catch (Exception e){
+
+        }
     }
 
     public void updateStudent(Student student){
-        studentRepository4.updateStudentDetails(student);
+        try{
+            studentRepository4.updateStudentDetails(student);
+        }
+        catch (Exception e){
+
+        }
     }
 
     public void deleteStudent(int id){
         //Delete student and deactivate corresponding card
-        cardService4.deactivateCard(id);
-        studentRepository4.deleteById(id);
+        try{
+            cardService4.deactivateCard(id);
+            studentRepository4.deleteCustom(id);
+        }
+        catch (Exception e){}
     }
 }

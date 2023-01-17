@@ -20,7 +20,7 @@ public class BookController {
     @PostMapping("/")
     public ResponseEntity createBook(@RequestBody Book book) {
         bookService.createBook(book);
-        return new ResponseEntity<>("Book is added successfully", HttpStatus.CREATED);
+        return new ResponseEntity("Book is added successfully", HttpStatus.CREATED);
     }
 
     //Add required annotations

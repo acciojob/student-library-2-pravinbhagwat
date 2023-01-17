@@ -18,19 +18,17 @@ public class StudentController {
 
     @GetMapping("/studentByEmail")
     public ResponseEntity getStudentByEmail(@RequestParam("email") String email){
-        Student student = null;
-        student = studentService.getDetailsByEmail(email);
-        return new ResponseEntity<>(student, HttpStatus.OK);
-//        return new ResponseEntity<>("Student details printed successfully ", HttpStatus.OK);
+        Student student =  studentService.getDetailsByEmail(email);
+//        return new ResponseEntity<>(student, HttpStatus.OK);
+        return new ResponseEntity<>("Student details printed successfully ", HttpStatus.OK);
     }
 
     //Add required annotations
     @GetMapping("/studentById")
-    public ResponseEntity<Student> getStudentById(@RequestParam("id") int id){
-        Student student = null;
-        student = studentService.getDetailsById(id);
-        return new ResponseEntity<>(student, HttpStatus.OK);
-//        return new ResponseEntity<>("Student details printed successfully ", HttpStatus.OK);
+    public ResponseEntity getStudentById(@RequestParam("id") int id){
+        Student student = studentService.getDetailsById(id);
+//        return new ResponseEntity<>(student, HttpStatus.OK);
+        return new ResponseEntity<>("Student details printed successfully ", HttpStatus.OK);
     }
 
     //Add required annotations

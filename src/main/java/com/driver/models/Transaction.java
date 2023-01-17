@@ -40,8 +40,26 @@ public class Transaction {
     public Transaction() {
     }
 
-    public Transaction(String transactionId) {
-        this.transactionId = transactionId;
+    public Transaction(int fineAmount, boolean isIssueOperation, TransactionStatus transactionStatus, Date transactionDate) {
+        this.fineAmount = fineAmount;
+        this.isIssueOperation = isIssueOperation;
+        this.transactionStatus = transactionStatus;
+        this.transactionDate = transactionDate;
+    }
+
+    public Transaction(Card card, Book book, int fineAmount, boolean isIssueOperation, TransactionStatus transactionStatus, Date transactionDate) {
+        this.card = card;
+        this.book = book;
+        this.fineAmount = fineAmount;
+        this.isIssueOperation = isIssueOperation;
+        this.transactionStatus = transactionStatus;
+        this.transactionDate = transactionDate;
+    }
+
+    public Transaction(int fineAmount, boolean isIssueOperation, TransactionStatus transactionStatus) {
+        this.fineAmount = fineAmount;
+        this.isIssueOperation = isIssueOperation;
+        this.transactionStatus = transactionStatus;
     }
 
     public int getId() {
